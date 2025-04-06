@@ -36,6 +36,11 @@ io.on('connection', (socket) => {
   });
 });
 
+// Gérer les erreurs globales de serveur
+server.on('error', (err) => {
+  console.error('Erreur du serveur HTTP:', err);
+});
+
 server.listen(3001, () => {
   console.log('Serveur lancé sur http://localhost:3001');
 });
