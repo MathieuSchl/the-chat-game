@@ -13,17 +13,5 @@ RUN npm install
 # Copier tous les fichiers du projet dans le conteneur
 COPY . .
 
-# Construire l'application pour la production
-RUN npm run build
-
-# Utiliser une image Nginx pour servir les fichiers construits
-FROM nginx:alpine
-
-# Copier le build React depuis l'image précédente
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Exposer le port sur lequel Nginx écoute (par défaut, c'est le port 80)
-EXPOSE 80
-
-# Lancer Nginx en mode premier plan
-CMD ["nginx", "-g", "daemon off;"]
+# Ca démarre
+CMD ["npm", "run", "start"]
