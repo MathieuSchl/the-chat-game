@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # Service pour le serveur Node.js avec Socket.IO
+  socket-io:
+    build:
+      context: ./back # Répertoire contenant le Dockerfile du serveur Socket.IO
+    ports:
+      - "6060:6060"  # Mapping du port local vers le port du conteneur
+    networks:
+      - app-network
+
+  # Service pour l'application React
+  react-app:
+    build:
+      context: ./front # Répertoire contenant le Dockerfile de l'application React
+    ports:
+      - "80:80"  # Mapping du port local vers le port du conteneur Nginx
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

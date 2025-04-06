@@ -5,8 +5,9 @@ import io from 'socket.io-client';
 import './App.css';
 import Chat from './pages/Chat';
 import ChooseTeam from './pages/ChooseTeam';
+import env from "./env";
 
-const socket = io('http://localhost:3001'); // Remplace par l'URL de ton serveur
+const socket = io(env.url + ':3001');
 
 const App = () => {
   return (

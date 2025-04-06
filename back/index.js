@@ -1,4 +1,5 @@
 // server.js
+require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
@@ -7,7 +8,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-      origin: "http://localhost:3000",  // Remplace par l'URL de ton client React
+      origin: [`${process.env.URL}:80`, `${process.env.URL}:3000`],  // Remplace par l'URL de ton client React
       methods: ["GET", "POST"],
       allowedHeaders: ["Content-Type"],
       credentials: true
