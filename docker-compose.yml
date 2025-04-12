@@ -10,7 +10,7 @@ services:
     networks:
       - app-network
     volumes:
-      - socket-data:/usr/src/app/save.json
+      - socket-data:/usr/src/app/data/
 
   # Service pour l'application React
   react-app:
