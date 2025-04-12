@@ -93,7 +93,6 @@ function shuffleWords(sentence) {
 const allType = ["removeVowels", "removeConsonants", "removeEveryOtherChar", "removeEveryOtherWord", "shuffleWord", "shuffleWordsInSentenceMiddle", "shuffleWordsInSentenceMiddle", "reverseWordsInSentence", "shuffleWords"]
 module.exports.applyCurrentRule = (input) => {
     if(randomMode) currentRule = allType[Math.floor(Math.random() * allType.length)];
-    console.log(currentRule);
     
     switch (currentRule) {
         case "removeVowels":
