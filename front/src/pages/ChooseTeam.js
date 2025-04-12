@@ -3,6 +3,7 @@ import "./ChooseTeam.css"
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie'; // Importer js-cookie
+import { QRCodeCanvas } from 'qrcode.react';
 
 function ChooseTeam() {
   const [name, setName] = useState('');

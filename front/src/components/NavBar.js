@@ -15,6 +15,7 @@ const NavBar = ({  }) => {
         {isAdmin ? (
           <li><a href="/admin">Admin</a></li>
         ) : ""}
+        <li><a href="/qrcode">Qrcode</a></li>
       </ul>
     </nav>
   );
