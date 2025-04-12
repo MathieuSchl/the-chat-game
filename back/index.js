@@ -18,12 +18,13 @@ const io = socketIo(server, {
     }
   });
 
-let messages = fs.existsSync("./save.json") ? JSON.parse(fs.readFileSync("./save.json")).messages: [];
+if (!fs.existsSync("./data/")) fs.mkdirSync("./data/");
+let messages = fs.existsSync("./data/save.json") ? JSON.parse(fs.readFileSync("./data/save.json")).messages: [];
 let messageLength = messages.length;
 setInterval(() => {
   if(messageLength !== messages.length){
     messageLength = messages.length;
-    fs.writeFileSync("./save.json", JSON.stringify({ messages }));
+    fs.writeFileSync("./data/save.json", JSON.stringify({ messages }));
   }
 }, 10000);
 
