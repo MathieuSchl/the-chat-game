@@ -25,7 +25,9 @@ io.on('connection', (socket) => {
   
   socket.on('message', (data) => {
     data.index = messages.length;
-    data.content = messageRules.applyCurrentRule(data.content);
+    
+    if(data.sender === "Indice") data.team = "verte";
+    else data.content = messageRules.applyCurrentRule(data.content);
     
     messages.push(data);
     io.emit('message', data);

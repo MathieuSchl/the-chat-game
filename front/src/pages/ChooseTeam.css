@@ -1,0 +1,94 @@
+/* Réinitialisation des marges et padding de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Style général de la page */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fb; /* Fond clair pour une atmosphère douce */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Conteneur principal */
+  div {
+    background-color: white;
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Style du titre */
+  h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #4a90e2;
+  }
+  
+  /* Style des champs du formulaire */
+  form div {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Style des labels */
+  label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  /* Style des champs de saisie (input et select) */
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Focus sur les champs de saisie */
+  input[type="text"]:focus,
+  select:focus {
+    border-color: #4a90e2;
+    outline: none;
+  }
+  
+  /* Style du bouton */
+  button {
+    background-color: #4a90e2;
+    color: white;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover sur le bouton */
+  button:hover {
+    background-color: #357ab7;
+  }
+  
+  /* Message d'erreur, si besoin */
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  
