@@ -4,6 +4,8 @@ const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
 
+const messageRules = require("./message-rules");
+
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
@@ -23,6 +25,8 @@ io.on('connection', (socket) => {
   
   socket.on('message', (data) => {
     data.index = messages.length;
+    data.content = messageRules.applyCurrentRule(data.content);
+    
     messages.push(data);
     io.emit('message', data);
   });
@@ -32,7 +36,7 @@ io.on('connection', (socket) => {
     const max = data - 1;
     
     const moreMessages = messages.slice(min, max);
-    io.emit('setPreviousMessage', moreMessages);
+    socket.emit('setPreviousMessage', moreMessages);
   });
 });
 

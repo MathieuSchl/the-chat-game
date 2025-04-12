@@ -13,17 +13,20 @@ const MessageList = ({ messages, socket }) => {
 
   const handleScroll = () => {
     // Vérifie si l'utilisateur est en haut de la div
+    
     if (messagesListRef.current.scrollTop === 0 && messages.length !== 0 && messages[0].index !== 0) {
       socket.emit("getMoreMessage", messages[0].index);
     }
   };
 
   socket.on('message', () => {
-    setTimeout(() => {
-      if (messagesListRef.current) {
-        messagesListRef.current.childNodes[messagesListRef.current.childNodes.length - 1].scrollIntoView({ behavior: 'smooth' });
+    if (messagesListRef.current) {
+        const isUserAtBottom = messagesListRef.current.scrollHeight - messagesListRef.current.scrollTop <= messagesListRef.current.clientHeight + (window.innerHeight / 2);
+
+        setTimeout(() => {
+            if(isUserAtBottom) messagesListRef.current.childNodes[messagesListRef.current.childNodes.length - 1].scrollIntoView({ behavior: 'smooth' });
+        }, 10);
       }
-    }, 10);
   });
 
   socket.on('setPreviousMessage', () => {

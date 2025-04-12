@@ -2,12 +2,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie'; // Importer js-cookie
-import io from 'socket.io-client';
 import './Chat.css';
 import MessageList from '../components/MessageList';
 import MessageInput from '../components/MessageInput';
-
-const socket = io('http://localhost:3001'); // Remplace par l'URL de ton serveur
 
 const Chat = ({ socket }) => {
   const navigate = useNavigate();
