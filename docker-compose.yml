@@ -17,7 +17,7 @@ services:
     build:
       context: ./front # Répertoire contenant le Dockerfile de l'application React
     ports:
-      - "80:3000"  # Mapping du port local vers le port du conteneur Nginx
+      - "80:80"  # Mapping du port local vers le port du conteneur Nginx
     networks:
       - app-network
 
