@@ -1,5 +1,5 @@
 // src/components/MessageList.js
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import Message from './Message';
 
 const MessageList = ({ messages, socket }) => {

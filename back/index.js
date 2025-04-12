@@ -40,6 +40,29 @@ io.on('connection', (socket) => {
     const moreMessages = messages.slice(min, max);
     socket.emit('setPreviousMessage', moreMessages);
   });
+
+  socket.on("getMode", () => {
+    socket.emit("getMode", { 
+      mode: messageRules.getCurrentRule(),
+      randomMode: messageRules.getRandomMode()
+    });
+  })
+
+  socket.on("setMode", (mode) => {
+    messageRules.setCurrentRule(mode);
+    socket.emit("getMode", { 
+      mode: messageRules.getCurrentRule(),
+      randomMode: messageRules.getRandomMode()
+    });
+  })
+
+  socket.on("setRandom", (mode) => {
+    messageRules.setRandomMode(mode);
+    socket.emit("getMode", { 
+      mode: messageRules.getCurrentRule(),
+      randomMode: messageRules.getRandomMode()
+    });
+  })
 });
 
 // Gérer les erreurs globales de serveur

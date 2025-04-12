@@ -18,9 +18,9 @@ function ChooseTeam() {
   };
 
   return (
-    <div>
-      <h1>Bienvenue! Choisis un nom et une équipe</h1>
+    <div className="ChooseTeam">
       <form onSubmit={handleSubmit}>
+        <h1>Bienvenue! Choisis un nom et une équipe</h1>
         <div>
           <label htmlFor="name">Nom :</label>
           <input

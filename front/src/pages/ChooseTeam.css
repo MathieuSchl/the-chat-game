@@ -5,22 +5,19 @@
     box-sizing: border-box;
   }
   
-  /* Style général de la page */
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7fb; /* Fond clair pour une atmosphère douce */
-    color: #333;
+  /* Applique le style seulement si la classe .ChooseTeam est présente */
+  .ChooseTeam {
+    /* Style général de la page */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    background-color: #f4f7fb; /* Fond clair pour une atmosphère douce */
   }
   
-  /* Conteneur principal */
-  div {
+  .ChooseTeam div {
     background-color: white;
-    padding: 2rem 1.5rem;
+    padding: 2rem 3rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -28,7 +25,7 @@
   }
   
   /* Style du titre */
-  h1 {
+  .ChooseTeam h1 {
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 1.5rem;
@@ -36,12 +33,17 @@
   }
   
   /* Style des champs du formulaire */
-  form div {
+  .ChooseTeam form {
+    width: 20rem;
+  }
+
+  /* Style des champs du formulaire */
+  .ChooseTeam form div {
     margin-bottom: 1.5rem;
   }
   
   /* Style des labels */
-  label {
+  .ChooseTeam label {
     display: block;
     font-size: 1rem;
     margin-bottom: 0.5rem;
@@ -49,8 +51,8 @@
   }
   
   /* Style des champs de saisie (input et select) */
-  input[type="text"],
-  select {
+  .ChooseTeam input[type="text"],
+  .ChooseTeam select {
     width: 100%;
     padding: 0.8rem;
     font-size: 1rem;
@@ -60,14 +62,14 @@
   }
   
   /* Focus sur les champs de saisie */
-  input[type="text"]:focus,
-  select:focus {
+  .ChooseTeam input[type="text"]:focus,
+  .ChooseTeam select:focus {
     border-color: #4a90e2;
     outline: none;
   }
   
   /* Style du bouton */
-  button {
+  .ChooseTeam button {
     background-color: #4a90e2;
     color: white;
     padding: 0.8rem;
@@ -80,12 +82,12 @@
   }
   
   /* Hover sur le bouton */
-  button:hover {
+  .ChooseTeam button:hover {
     background-color: #357ab7;
   }
   
   /* Message d'erreur, si besoin */
-  .error {
+  .ChooseTeam .error {
     color: red;
     font-size: 0.9rem;
     margin-top: 0.5rem;

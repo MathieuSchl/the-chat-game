@@ -1,0 +1,40 @@
+/* ButtonPage.css */
+.button-page {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-red {
+  background-color: red;
+  color: white;
+}
+
+.btn-red:hover {
+  background-color: darkred;
+}
+
+.btn-green {
+  background-color: green;
+  color: white;
+}
+
+.btn-green:hover {
+  background-color: darkgreen;
+}

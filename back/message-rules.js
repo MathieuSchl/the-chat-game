@@ -1,5 +1,21 @@
-let currentRule = "null";
+let currentRule = "Rien";
 let randomMode = false;
+
+module.exports.setCurrentRule = (value) => {
+    currentRule = value;
+}
+
+module.exports.getCurrentRule = () => {
+    return currentRule;
+}
+
+module.exports.setRandomMode = (value) => {
+    randomMode = value;
+}
+
+module.exports.getRandomMode = () => {
+    return randomMode;
+}
 
 function removeVowels(str) {
     return str.replace(/[aeiouyAEIOUY]/g, '');
@@ -77,6 +93,8 @@ function shuffleWords(sentence) {
 const allType = ["removeVowels", "removeConsonants", "removeEveryOtherChar", "removeEveryOtherWord", "shuffleWord", "shuffleWordsInSentenceMiddle", "shuffleWordsInSentenceMiddle", "reverseWordsInSentence", "shuffleWords"]
 module.exports.applyCurrentRule = (input) => {
     if(randomMode) currentRule = allType[Math.floor(Math.random() * allType.length)];
+    console.log(currentRule);
+    
     switch (currentRule) {
         case "removeVowels":
             return removeVowels(input);
