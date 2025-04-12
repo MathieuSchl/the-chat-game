@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
+const fs = require("fs");
 
 const messageRules = require("./message-rules");
 
@@ -17,7 +18,14 @@ const io = socketIo(server, {
     }
   });
 
-let messages = [];
+let messages = fs.existsSync("./save.json") ? JSON.parse(fs.readFileSync("./save.json")).messages: [];
+let messageLength = messages.length;
+setInterval(() => {
+  if(messageLength !== messages.length){
+    messageLength = messages.length;
+    fs.writeFileSync("./save.json", JSON.stringify({ messages }));
+  }
+}, 10000);
 
 io.on('connection', (socket) => {
   const lastMessages = messages.slice(-20);

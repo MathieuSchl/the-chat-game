@@ -4,14 +4,32 @@ FROM node:18.19.1 AS build
 # Définir le répertoire de travail
 WORKDIR /app
 
-# Copier les fichiers package.json et package-lock.json
+# Copier les fichiers de dépendances
 COPY package*.json ./
 
 # Installer les dépendances
 RUN npm install
 
-# Copier tous les fichiers du projet dans le conteneur
+# Copier le reste des fichiers
 COPY . .
 
-# Ca démarre
-CMD ["npm", "run", "start"]
+# Build de l'application
+RUN npm run build
+
+# Étape 2 : Serveur Nginx pour servir l'app
+FROM nginx:alpine
+
+# Supprimer la config par défaut de nginx
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copier les fichiers build dans le répertoire nginx
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Copier une config custom de nginx si besoin
+# COPY nginx.conf /etc/nginx/nginx.conf
+
+# Exposer le port utilisé par nginx
+EXPOSE 80
+
+# Lancer nginx en mode foreground
+CMD ["nginx", "-g", "daemon off;"]

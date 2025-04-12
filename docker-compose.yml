@@ -6,9 +6,11 @@ services:
     build:
       context: ./back # Répertoire contenant le Dockerfile du serveur Socket.IO
     ports:
-      - "6060:6060"  # Mapping du port local vers le port du conteneur
+      - "3001:3001"  # Mapping du port local vers le port du conteneur
     networks:
       - app-network
+    volumes:
+      - socket-data:/usr/src/app/save.json
 
   # Service pour l'application React
   react-app:
@@ -22,3 +24,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  socket-data:
