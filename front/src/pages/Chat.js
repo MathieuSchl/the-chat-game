@@ -37,6 +37,11 @@ const Chat = ({ socket }) => {
     setMessages(data.concat(messages));
   });
 
+  useEffect(()=>{
+    if(messages.length === 0) {
+      socket.emit("getMessage");
+    }
+  });
 
   return (
     <div className="chat">

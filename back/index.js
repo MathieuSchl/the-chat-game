@@ -29,9 +29,6 @@ setInterval(() => {
 }, 10000);
 
 io.on('connection', (socket) => {
-  const lastMessages = messages.slice(-20);
-  io.emit('setMessage', lastMessages);
-  
   socket.on('message', (data) => {
     data.index = messages.length;
     
@@ -40,6 +37,11 @@ io.on('connection', (socket) => {
     
     messages.push(data);
     io.emit('message', data);
+  });
+
+  socket.on('getMessage', () => {
+    const lastMessages = messages.slice(-20);
+    io.emit('setMessage', lastMessages);
   });
 
   socket.on('getMoreMessage', (data) => {
