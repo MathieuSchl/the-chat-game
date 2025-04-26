@@ -4,12 +4,6 @@ import Message from './Message';
 
 const MessageList = ({ messages, socket }) => {
   const messagesListRef = useRef(0);
-  // Fonction pour faire défiler automatiquement vers le bas
-  const scrollToBottom = () => {
-    if (messagesListRef.current) {
-      messagesListRef.current.childNodes[messagesListRef.current.childNodes.length - 1].scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const handleScroll = () => {
     // Vérifie si l'utilisateur est en haut de la div
@@ -27,6 +21,12 @@ const MessageList = ({ messages, socket }) => {
             if(isUserAtBottom) messagesListRef.current.childNodes[messagesListRef.current.childNodes.length - 1].scrollIntoView({ behavior: 'smooth' });
         }, 10);
       }
+  });
+
+  socket.on('setMessage', () => {
+    setTimeout(() => {
+      messagesListRef.current.childNodes[messagesListRef.current.childNodes.length - 1].scrollIntoView();
+    }, 10);
   });
 
   socket.on('setPreviousMessage', () => {
