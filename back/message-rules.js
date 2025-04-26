@@ -90,36 +90,52 @@ function shuffleWords(sentence) {
       .join(' ');                // Recompose la phrase
 }
 
-const allType = ["removeVowels", "removeConsonants", "removeEveryOtherChar", "removeEveryOtherWord", "shuffleWord", "shuffleWordsInSentenceMiddle", "shuffleWordsInSentenceMiddle", "reverseWordsInSentence", "shuffleWords"]
+function rot(str, rotValue) {
+    return str.replace(/[a-zA-Z]/g, function(c) {
+      const base = c <= 'Z' ? 65 : 97;
+      return String.fromCharCode((c.charCodeAt(0) - base + rotValue) % 26 + base);
+    });
+}
+
+const allType = ["removeVowels", "removeConsonants", "removeEveryOtherChar", "removeEveryOtherWord", "shuffleWord", "shuffleWordsInSentenceMiddle", "shuffleWordsInSentenceMiddle", "reverseWordsInSentence", "shuffleWords", "rot1", "rot13", "font-aurebesh"]
 module.exports.applyCurrentRule = (input) => {
     if(randomMode) currentRule = allType[Math.floor(Math.random() * allType.length)];
     
     switch (currentRule) {
         case "removeVowels":
-            return removeVowels(input);
+            return {text: removeVowels(input)};
 
         case "removeConsonants":
-            return removeConsonants(input);
+            return {text: removeConsonants(input)};
 
         case "removeEveryOtherChar":
-            return removeEveryOtherChar(input);
+            return {text: removeEveryOtherChar(input)};
 
         case "removeEveryOtherWord":
-            return removeEveryOtherWord(input);
+            return {text: removeEveryOtherWord(input)};
 
         case "shuffleWord":
-            return shuffleWordsInSentence(input);
+            return {text: shuffleWordsInSentence(input)};
 
         case "shuffleWordsInSentenceMiddle":
-            return shuffleWordsInSentenceMiddle(input);
+            return {text: shuffleWordsInSentenceMiddle(input)};
 
         case "reverseWordsInSentence":
-            return reverseWordsInSentence(input);
+            return {text: reverseWordsInSentence(input)};
         
         case "shuffleWords":
-            return shuffleWords(input);
+            return {text: shuffleWords(input)};
+    
+        case "rot1":
+            return {text: rot(input, 1)};
+
+        case "rot13":
+            return {text: rot(input, 13)};
+
+        case "font-aurebesh":
+            return {text: input, font: "font-aurebesh"};
     
         default:
-            return input;
+            return {text: input};
     }
 };

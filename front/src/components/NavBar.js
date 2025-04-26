@@ -11,7 +11,7 @@ const NavBar = ({  }) => {
     <nav className="navbar">
       <ul className="navbar-links">
         <li><a href="/chat">Messages</a></li>
-        <li><a href="/chat">Quête</a></li>
+        <li><a href="/quest">Quête</a></li>
         {isAdmin ? (
           <li><a href="/admin">Admin</a></li>
         ) : ""}

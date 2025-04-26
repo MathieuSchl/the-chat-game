@@ -17,6 +17,9 @@ const Admin = ({ socket }) => {
     { text: 'Melanger les lettres au milieu', value: 'shuffleWordsInSentenceMiddle' },
     { text: 'Inverser les mots', value: 'reverseWordsInSentence' },
     { text: 'Melanger les mots', value: 'shuffleWords' },
+    { text: 'Rot 1', value: 'rot1' },
+    { text: 'Rot 13', value: 'rot13' },
+    { text: 'Font Aurebesh', value: 'font-aurebesh' },
   ];
 
   function selectMode(type) {

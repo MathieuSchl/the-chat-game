@@ -1,0 +1,75 @@
+.quest {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.quest .the-team {
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 10%;
+  padding: 8px;
+  border-radius: 20px;
+  max-width: 50%;
+  color: white;
+}
+
+.quest .the-team.red {
+  background-color: #b53c3c;
+}
+
+.quest .the-team.blue {
+  background-color: #007bff;
+}
+
+.quest p.red,
+.quest strong.red {
+  color: #b53c3c;
+}
+
+.quest strong.blue {
+  color: #007bff;
+}
+
+.quest .hint {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: rgba(61, 61, 61, 0.753);
+}
+
+.quest .question-text {
+  margin: 10px;
+}
+
+.quest img {
+  max-width: 50%;
+}
+
+.quest .form-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.quest .form-row input {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.quest .form-row button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.quest .form-row button:hover {
+  background-color: #0056b3;
+}

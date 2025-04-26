@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Aurebesh';
+  src: url('./assets/fonts/aurebesh_af/AurebeshAF-Canon.otf') format('opentype');
+}
+
+.font-aurebesh {
+  font-family: 'Aurebesh', sans-serif;
+}

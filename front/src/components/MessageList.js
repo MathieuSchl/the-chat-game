@@ -50,6 +50,7 @@ const MessageList = ({ messages, socket }) => {
           sender={msg.sender}
           timestamp={msg.timestamp}
           team={msg.team}
+          font={msg.font}
         />
       ))}
     </div>
