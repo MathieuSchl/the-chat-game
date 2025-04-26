@@ -56,17 +56,22 @@ const Quest = ({ socket }) => {
   });
 
   function handleSubmit() {
+    console.log(`"${inputValue}"`);
+    const inputValueTrimed = inputValue.trimEnd();
+
+    console.log(`"${inputValueTrimed}"`);
+    
     if(isNumber(quest.quest[team].answer)){
-      if(quest.quest[team].answer == inputValue) {
+      if(quest.quest[team].answer == inputValueTrimed) {
         setBadAnswer(false);
-        socket.emit("validAnwser", inputValue, team);
+        socket.emit("validAnwser", inputValueTrimed, team);
       }
       else setBadAnswer(true);
     } else {
-      const distance = levenshtein(quest.quest[team].answer.toLowerCase(), inputValue.toLowerCase());
+      const distance = levenshtein(quest.quest[team].answer.toLowerCase(), inputValueTrimed.toLowerCase());
       if(distance <= 1) {
         setBadAnswer(false);
-        socket.emit("validAnwser", inputValue, team);
+        socket.emit("validAnwser", inputValueTrimed, team);
       }
       else setBadAnswer(true);
     }
