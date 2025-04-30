@@ -127,7 +127,7 @@ module.exports.applyCurrentRule = (input) => {
             return {text: shuffleWords(input)};
     
         case "rot1":
-            return {text: rot(input, 1)};
+            return {text: rot(input, 25)};
 
         case "rot13":
             return {text: rot(input, 13)};
